@@ -63,26 +63,25 @@ MTK_HARDWARE := true
 TARGET_KERNEL_VERSION := 4.14
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-#TARGET_KERNEL_SOURCE := kernel/oplus/mt6785
-#TARGET_KERNEL_CONFIG := salaa_defconfig
+HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
+TARGET_KERNEL_SOURCE := kernel/oplus/mt6785
+TARGET_KERNEL_CONFIG := salaa_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CLANG_VERSION := r510928
-TARGET_CLANG_PREBUILTS_VERSION := r510928
+TARGET_KERNEL_CLANG_VERSION := clang-r522817
 TARGET_CLANG_WITH_GNU_BINUTILS := true
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-gnu-
 TARGET_KERNEL_CROSS_COMPILE_PREFIX_ARM32 := arm-linux-gnueabi-
-#TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-r510928
+TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-r522817
 KERNEL_LD := LD=ld.lld
 KERNEL_SUPPORTS_LLVM_TOOLS := true
 TARGET_KERNEL_ADDITIONAL_FLAGS := \
-    HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument" \
     LLVM=1 \
     LLVM_IAS=1
 
 ##** Kernel - config **##
 BOARD_KERNEL_IMAGE_NAME := Image.gz
-#BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-#BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_KERNEL_SEPARATED_DTBO := true
 #BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo/dtbo 
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
@@ -108,15 +107,15 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 
 ##************************************************************************##
 ##** Kernel - prebuilt **##
-TARGET_FORCE_PREBUILT_KERNEL := true
-ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel-gz/kernel
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb/dtb.img
-BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
-BOARD_INCLUDE_DTB_IN_BOOTIMG := 
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo/dtbo.img
-BOARD_KERNEL_SEPARATED_DTBO := 
-endif
+#TARGET_FORCE_PREBUILT_KERNEL := true
+#ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
+#TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel-gz/kernel
+#TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb/dtb.img
+#BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
+#BOARD_INCLUDE_DTB_IN_BOOTIMG := 
+#BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo/dtbo.img
+#BOARD_KERNEL_SEPARATED_DTBO := 
+#endif
 ##************************************************************************##
 
 ##** Assert **##
@@ -266,7 +265,7 @@ TW_MILITARY_TIME := true
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
 TW_LOAD_VENDOR_BOOT_MODULES := true
-TW_LOAD_VENDOR_MODULES := "flashlight.o flashlight-core.o flashlights-mt6360.o rt-flashlight.o rtfled.o fpsgo.ko wlan_drv_gen4m.ko wmt_chrdev_wifi.ko wmt_drv.ko"
+TW_LOAD_VENDOR_MODULES := "fpsgo.ko wlan_drv_gen4m.ko wmt_chrdev_wifi.ko wmt_drv.ko"
 #TW_NEVER_UNMOUNT_SYSTEM := true
 #TW_USE_NEW_MINADBD := true
 #TW_NO_BIND_SYSTEM := true
@@ -282,7 +281,7 @@ TW_LOAD_VENDOR_MODULES := "flashlight.o flashlight-core.o flashlights-mt6360.o r
 TW_THEME := portrait_hdpi
 
 ##** Version/Maintainer **##
-#TW_DEVICE_VERSION := RUI_V3.0_by_Stim
+TW_DEVICE_VERSION := RUI_V3.0_by_Stim
 
 ##** Debug flags **##
 TWRP_INCLUDE_LOGCAT := true
@@ -298,12 +297,12 @@ TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_REPACKTOOLS := true
 
 ##** Configure Status bar icons "TWRP builds only" **##
-TW_Y_OFFSET := 32
-TW_H_OFFSET := -32
-TW_CUSTOM_CPU_POS := 155
+TW_Y_OFFSET := 28
+TW_H_OFFSET := -28
+#TW_CUSTOM_CPU_POS := 185
 #TW_CUSTOM_BATTERY_POS := 916
-TW_CUSTOM_CLOCK_POS := 520
-TW_STATUS_ICONS_ALIGN := center
+#TW_CUSTOM_CLOCK_POS := 520
+#TW_STATUS_ICONS_ALIGN := center
 
 #PB_DISABLE_DEFAULT_TREBLE_COMP := true
 #PB_TORCH_PATH := "/sys/class/flashlight/mt-flash-led1"
@@ -371,19 +370,19 @@ TW_OVERRIDE_SYSTEM_PROPS := "ro.build.version.sdk"
 
 ##** Custom TWRP Versioning **##
 ##** device version is optional - the default value is "0" if nothing is set in device tree **##
-#CUSTOM_TWRP_DEVICE_VERSION := RUI_V3.0
+CUSTOM_TWRP_DEVICE_VERSION := RUI_V3.0
 
 ##** version prefix is optional - the default value is "LOCAL" if nothing is set in device tree **##
-#CUSTOM_TWRP_VERSION_PREFIX := by_StimLuks
+CUSTOM_TWRP_VERSION_PREFIX := by_StimLuks
 
-#include device/common/version-info/custom_twrp_version.mk
+include device/common/version-info/custom_twrp_version.mk
 
-#ifeq ($(CUSTOM_TWRP_VERSION),)
-#CUSTOM_TWRP_VERSION := $(shell date +%Y%m%d)-01
-#endif
+ifeq ($(CUSTOM_TWRP_VERSION),)
+CUSTOM_TWRP_VERSION := $(shell date +%Y%m%d)-01
+endif
 
 ##** VINTF **##
 #DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 ##** Inherit the proprietary files **##
-#include vendor/oplus/RMX2151/BoardConfigVendor.mk
+include vendor/oplus/RMX2151/BoardConfigVendor.mk
