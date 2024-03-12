@@ -1,4 +1,4 @@
-# TWRP Device Tree for Realme 7
+# SHRP-Reborn Device Tree for Realme 7
 
 The Realme 7 is a mid-range smartphone from Realme. It was announced and released in September 2020.
 
