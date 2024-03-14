@@ -60,30 +60,14 @@ BOARD_HAS_MTK_HARDWARE := true
 BOARD_USES_MTK_HARDWARE := true
 MTK_HARDWARE := true
 
-##** Clang - config **##
-TARGET_KERNEL_VERSION := 4.14
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
-HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
-TARGET_KERNEL_SOURCE := kernel/oplus/mt6785
-TARGET_KERNEL_CONFIG := salaa_defconfig
-TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CLANG_VERSION := clang-r522817
-TARGET_CLANG_WITH_GNU_BINUTILS := true
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-gnu-
-TARGET_KERNEL_CROSS_COMPILE_PREFIX_ARM32 := arm-linux-gnueabi-
-TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-r522817
-KERNEL_LD := LD=ld.lld
-KERNEL_SUPPORTS_LLVM_TOOLS := true
-TARGET_KERNEL_ADDITIONAL_FLAGS := \
-    LLVM=1 \
-    LLVM_IAS=1
+##** Assert **##
+TARGET_OTA_ASSERT_DEVICE := RMX2151,RMX2151L1,RMX2155,RMX2155L1,RMX2156,RMX2156L1,RM6785,oppo6785,ossi,salaa
 
 ##** Kernel - config **##
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+#BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img 
 BOARD_KERNEL_SEPARATED_DTBO := true
-#BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo/dtbo 
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += kpti=off
@@ -110,17 +94,33 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 ##** Kernel - prebuilt **##
 #TARGET_FORCE_PREBUILT_KERNEL := true
 #ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
-#TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel-gz/kernel
-#TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb/dtb.img
+#TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel-gz/kernel
+#TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb/dtb.img
 #BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 #BOARD_INCLUDE_DTB_IN_BOOTIMG := 
-#BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo/dtbo.img
+#BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo/dtbo.img
 #BOARD_KERNEL_SEPARATED_DTBO := 
 #endif
 ##************************************************************************##
 
-##** Assert **##
-TARGET_OTA_ASSERT_DEVICE := RMX2001,RMX2001L1,RMX2151,RMX2151L1,RMX2155,RMX2155L1,RMX2156,RMX2156L1,RM6785,oppo6785,ossi,salaa
+##** Clang - config **##
+TARGET_KERNEL_VERSION := 4.14
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
+TARGET_KERNEL_SOURCE := kernel/oplus/mt6785
+TARGET_KERNEL_CONFIG := salaa_defconfig
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_CLANG_VERSION := clang-r498229b
+TARGET_CLANG_WITH_GNU_BINUTILS := true
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-gnu-
+TARGET_KERNEL_CROSS_COMPILE_PREFIX_ARM32 := arm-linux-gnueabi-
+TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-r498229b
+KERNEL_LD := LD=ld.lld
+KERNEL_SUPPORTS_LLVM_TOOLS := true
+TARGET_KERNEL_ADDITIONAL_FLAGS := \
+    LLVM=1 \
+    LLVM_IAS=1
 
 ##** Metadata **##
 BOARD_USES_METADATA_PARTITION := true
