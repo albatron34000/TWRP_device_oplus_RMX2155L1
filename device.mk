@@ -131,22 +131,16 @@ PRODUCT_PACKAGES += \
 ##** Keymaster **##
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.0.vendor \
+    android.hardware.keymaster@4.1.vendor \
     libkeymaster4.vendor:64 \
     libkeymaster4support.vendor:64 \
-    libsoft_attestation_cert.vendor:64 \
-    libkeystore-wifi-hidl \
-    libkeystore-engine-wifi-hidl
+    libsoft_attestation_cert.vendor:64 
 
 ##** Gatekeeper **##
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service \
-    android.hardware.gatekeeper@1.0-impl 
-
-# Crypto
-PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor \
-    android.hardware.keymaster@4.1.vendor \
-    android.hardware.keymaster@4.0.vendor
+    android.hardware.gatekeeper@1.0-impl 
 
 ##** Inherit the proprietary files **##
 $(call inherit-product, vendor/oplus/RMX2151/RMX2151-vendor.mk)
