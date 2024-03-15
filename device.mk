@@ -149,4 +149,4 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.0.vendor
 
 ##** Inherit the proprietary files **##
-#$(call inherit-product, vendor/oplus/RMX2151/RMX2151-vendor.mk)
+$(call inherit-product, vendor/oplus/RMX2151/RMX2151-vendor.mk)
