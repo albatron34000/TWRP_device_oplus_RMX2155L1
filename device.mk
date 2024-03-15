@@ -16,6 +16,10 @@
 ##************************************************************************##
 LOCAL_PATH := device/oplus/RMX2151
 
+##** Soong namespaces **##
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
+
 ##** Shipping API level **##
 PRODUCT_SHIPPING_API_LEVEL := 29
 BOARD_SHIPPING_API_LEVEL := 29
@@ -136,12 +140,13 @@ PRODUCT_PACKAGES += \
 ##** Gatekeeper **##
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service \
-    android.hardware.gatekeeper@1.0-impl \
-    gatekeeperd
+    android.hardware.gatekeeper@1.0-impl 
 
-##** Soong namespaces **##
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+# Crypto
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0.vendor \
+    android.hardware.keymaster@4.1.vendor \
+    android.hardware.keymaster@4.0.vendor
 
 ##** Inherit the proprietary files **##
 #$(call inherit-product, vendor/oplus/RMX2151/RMX2151-vendor.mk)
