@@ -15,17 +15,17 @@
 #
 ##************************************************************************##
 ##** Device Information **##
-PRODUCT_DEVICE := RMX2151
+PRODUCT_DEVICE := RMX2155
 PRODUCT_NAME := twrp_$(PRODUCT_DEVICE)
 PRODUCT_BRAND := oplus
-PRODUCT_MODEL := RMX2151
+PRODUCT_MODEL := RMX2155
 PRODUCT_MANUFACTURER := $(PRODUCT_BRAND)
-PRODUCT_RELEASE_NAME := RMX2151
+PRODUCT_RELEASE_NAME := RMX2155
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=RMX2151 \
-    BUILD_PRODUCT=RMX2151 \
-    TARGET_DEVICE=RMX2151L1 
+    PRODUCT_NAME=RMX2155 \
+    BUILD_PRODUCT=RMX2155 \
+    TARGET_DEVICE=RMX2155L1 
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
