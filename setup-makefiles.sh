@@ -17,7 +17,7 @@
 ##************************************************************************##
 set -e
 
-DEVICE=RMX2151
+DEVICE=RMX2155
 VENDOR=oplus
 
 # Load extract_utils and do some sanity checks
