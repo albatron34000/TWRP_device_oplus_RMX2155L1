@@ -32,6 +32,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.bootimage.build.date.utc=0 \
     ro.build.date.utc=0
 
+##** Enable updating of APEXes **##
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
+##** Configure gsi_keys.mk **##
+$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+
 ##** Property **##
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.fuse.passthrough.enable=true
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*.rc,$(LOCAL_PATH)/recovery/root,recovery/root)

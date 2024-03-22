@@ -33,20 +33,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
-##** Configure gsi_keys.mk **##
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
-
-##** Enable updating of APEXes **##
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
 ##** Inherit from PBRP-common stuff, if building PBRP.
 $(call inherit-product-if-exists, vendor/pb/config/common.mk)
 
 ##** Inherit from TWRP-common stuff, if building TWRP.
 $(call inherit-product-if-exists, vendor/twrp/config/common.mk)
 
-##** Inherit from RMX2151 device **##
-$(call inherit-product, device/oplus/RMX2151/device.mk)
+##** Inherit from RMX2155 device **##
+$(call inherit-product, device/oplus/RMX2155/device.mk)
 
 PRODUCT_GMS_CLIENTID_BASE := android-$(PRODUCT_MANUFCATURER)
 ##************************************************************************##
