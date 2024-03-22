@@ -314,7 +314,7 @@ TW_H_OFFSET := -28
 #MAINTAINER := Stim@Luks
 
 # Device codename *
-SHRP_DEVICE_CODE := RMX2151
+SHRP_DEVICE_CODE := RMX2155
 
 # Path of your SHRP Tree
 SHRP_PATH := device/oplus/$(SHRP_DEVICE_CODE)
