@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 ##************************************************************************##
-DEVICE_PATH := device/oplus/RMX2155
+DEVICE_PATH := device/oplus/RMX2155L1
 
 ##** For building with minimal manifest **##
 ALLOW_MISSING_DEPENDENCIES := true
@@ -386,4 +386,4 @@ endif
 #DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 ##** Inherit the proprietary files **##
-include vendor/oplus/RMX2155/BoardConfigVendor.mk
+include vendor/oplus/RMX2155L1/BoardConfigVendor.mk
