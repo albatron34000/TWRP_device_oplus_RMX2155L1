@@ -1,4 +1,4 @@
-# SHRP-Reborn Device Tree for RMX2155 (RMX2155L1)
+# TWRP Device Tree for RMX2155 (RMX2155L1)
 
 The Realme 7 is a mid-range smartphone from Realme. It was announced and released in September 2020.
 
