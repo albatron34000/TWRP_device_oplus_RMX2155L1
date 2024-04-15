@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 ##************************************************************************##
-LOCAL_PATH := device/oplus/RMX2155
+LOCAL_PATH := device/oplus/RMX2155L1
 
 ##** Soong namespaces **##
 PRODUCT_SOONG_NAMESPACES += \
@@ -149,4 +149,4 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl 
 
 ##** Inherit the proprietary files **##
-$(call inherit-product, vendor/oplus/RMX2155/RMX2155-vendor.mk)
+$(call inherit-product, vendor/oplus/RMX2155L1/RMX2155L1-vendor.mk)
