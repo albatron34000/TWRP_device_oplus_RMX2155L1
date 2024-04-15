@@ -15,7 +15,7 @@
 #
 ##************************************************************************##
 ##** Device Information **##
-PRODUCT_DEVICE := RMX2155
+PRODUCT_DEVICE := RMX2155L1
 PRODUCT_NAME := twrp_$(PRODUCT_DEVICE)
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := Realme 7
@@ -39,8 +39,8 @@ $(call inherit-product-if-exists, vendor/pb/config/common.mk)
 ##** Inherit from TWRP-common stuff, if building TWRP.
 $(call inherit-product-if-exists, vendor/twrp/config/common.mk)
 
-##** Inherit from RMX2155 device **##
-$(call inherit-product, device/oplus/RMX2155/device.mk)
+##** Inherit from RMX2155L1 device **##
+$(call inherit-product, device/oplus/RMX2155L1/device.mk)
 
 PRODUCT_GMS_CLIENTID_BASE := android-$(PRODUCT_MANUFCATURER)
 ##************************************************************************##
