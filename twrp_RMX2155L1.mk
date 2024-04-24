@@ -31,7 +31,7 @@ $(call inherit-product-if-exists, vendor/pb/config/common.mk)
 $(call inherit-product-if-exists, vendor/twrp/config/common.mk)
 
 ##** Inherit from RMX2155L1 device **##
-$(call inherit-product, device/RMX2155L1/device.mk)
+$(call inherit-product, device/realme/RMX2155L1/device.mk)
 
 PRODUCT_GMS_CLIENTID_BASE := android-$(PRODUCT_MANUFCATURER)
 ##************************************************************************##
