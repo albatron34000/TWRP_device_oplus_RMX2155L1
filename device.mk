@@ -140,4 +140,4 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl 
 
 ##** Inherit the proprietary files **##
-$(call inherit-product, vendor/oplus/RMX2155L1/RMX2155L1-vendor.mk)
+#$(call inherit-product, vendor/oplus/RMX2155L1/RMX2155L1-vendor.mk)
