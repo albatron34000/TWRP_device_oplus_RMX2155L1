@@ -82,36 +82,13 @@ BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 
 ##************************************************************************##
-##** Kernel - prebuilt **##
-#TARGET_FORCE_PREBUILT_KERNEL := true
-#ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
-#TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel-gz/kernel
-#TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb/dtb.img
-#BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
-#BOARD_INCLUDE_DTB_IN_BOOTIMG := 
-#BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo/dtbo.img
-#BOARD_KERNEL_SEPARATED_DTBO := 
-#endif
-##************************************************************************##
+BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtb
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 
-##** Clang - config **##
-TARGET_KERNEL_VERSION := 4.14
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
-HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
-TARGET_KERNEL_SOURCE := kernel/oplus/mt6785
-TARGET_KERNEL_CONFIG := salaa_defconfig
-TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CLANG_VERSION := r510928
-TARGET_CLANG_WITH_GNU_BINUTILS := true
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-gnu-
-TARGET_KERNEL_CROSS_COMPILE_PREFIX_ARM32 := arm-linux-gnueabi-
-TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-r510928
-KERNEL_LD := LD=ld.lld
-KERNEL_SUPPORTS_LLVM_TOOLS := true
-TARGET_KERNEL_ADDITIONAL_FLAGS := \
-    LLVM=1 \
-    LLVM_IAS=1
+BOARD_INCLUDE_RECOVERY_DTBO := true
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+##************************************************************************##
 
 ##** Metadata **##
 BOARD_USES_METADATA_PARTITION := true
