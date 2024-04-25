@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 ##******************************************##
-DEVICE_PATH := device/oplus/RMX2155L1
+DEVICE_PATH := device/realme/RMX2155L1
 
 ##** For building with minimal manifest **##
 ALLOW_MISSING_DEPENDENCIES := true
@@ -308,7 +308,7 @@ TW_H_OFFSET := -28
 SHRP_DEVICE_CODE := RMX2155
 
 # Path of your SHRP Tree
-SHRP_PATH := device/oplus/$(SHRP_DEVICE_CODE)
+SHRP_PATH := device/realme/$(SHRP_DEVICE_CODE)
 
 # Maintainer name *
 SHRP_MAINTAINER := Stim@Luks
@@ -364,17 +364,10 @@ TW_OVERRIDE_SYSTEM_PROPS := "ro.build.version.sdk"
 ##** device version is optional - the default value is "0" if nothing is set in device tree **##
 CUSTOM_TWRP_DEVICE_VERSION := RUI_V3.0
 
-##** version prefix is optional - the default value is "LOCAL" if nothing is set in device tree **##
-CUSTOM_TWRP_VERSION_PREFIX := by_StimLuks
-
-include device/common/version-info/custom_twrp_version.mk
 
 ifeq ($(CUSTOM_TWRP_VERSION),)
 CUSTOM_TWRP_VERSION := $(shell date +%Y%m%d)-01
 endif
-
-##** VINTF **##
-#DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 ##** Inherit the proprietary files **##
 include vendor/oplus/RMX2155L1/BoardConfigVendor.mk
