@@ -368,6 +368,3 @@ CUSTOM_TWRP_DEVICE_VERSION := RUI_V3.0
 ifeq ($(CUSTOM_TWRP_VERSION),)
 CUSTOM_TWRP_VERSION := $(shell date +%Y%m%d)-01
 endif
-
-##** Inherit the proprietary files **##
-include vendor/oplus/RMX2155L1/BoardConfigVendor.mk
