@@ -6,6 +6,6 @@
 #
 ##******************************************##
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/twrp_RMX2155L1.mk
+    $(LOCAL_DIR)/twrp_RMX2001L1.mk
 
-COMMON_LUNCH_CHOICES := twrp_RMX2155L1-eng
+COMMON_LUNCH_CHOICES := twrp_RMX2001L1-eng
